@@ -40,7 +40,6 @@ body {
   margin-left: 100px;
 }
 
-
 .texto-centro {
   text-align: center;
 }
@@ -56,12 +55,46 @@ body {
 }
 
 
-.menu-botones {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px;
-  justify-content: end;
+.menu-contenedor {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-toggle {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
   margin-right: 100px;
+}
+
+.menu-toggle img {
+  width: 20px;
+  height: 20px;
+}
+
+.menu-opciones {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.menu-opciones.activo {
+  display: flex;
 }
 
 .boton-nav {
@@ -88,8 +121,6 @@ body {
   background-color: #f0f0f0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
-
 
 .resultados {
   padding: 32px;
@@ -159,7 +190,7 @@ footer {
   padding: 16px 0;
 }
 
-
+/* ---------- MEDIA QUERY RESPONSIVE ---------- */
 
 @media screen and (max-width: 768px) {
   .header-content {
@@ -177,18 +208,15 @@ footer {
     text-align: center;
   }
 
-  .menu-botones {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 16px;
+  .menu-opciones {
+    right: 0;
+    top: 50px;
     width: 100%;
-    justify-content: center;
+    max-width: 250px;
   }
 
   .boton-nav {
-    justify-content: center;
-    padding: 10px 14px;
+    justify-content: flex-start;
     font-size: 14px;
   }
 
